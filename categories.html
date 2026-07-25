@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Categories - Sheikify</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to Separate External CSS -->
+    <link rel="stylesheet" href="categories.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Updated Top Header Zone -->
+        <div class="top-bar">
+            <div class="logo-container">
+                <div class="logo-box">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <h2>Sheik<span>ify</span></h2>
+                    <p><i class="fa-solid fa-cart-shopping"></i> DISCOVER BETTER</p>
+                </div>
+            </div>
+            <div class="header-title-tag">Categories</div>
+        </div>
+
+        <!-- Main Content Layout Pane -->
+        <div class="main-layout">
+            
+            <!-- Dynamic Left Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="loader-box"><i class="fa-solid fa-spinner fa-spin"></i></div>
+            </div>
+
+            <!-- Dynamic Right Content View -->
+            <div class="content-area" id="contentArea">
+                <div class="loader-box"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</div>
+            </div>
+
+        </div>
+
+        <!-- Overlay for Sheets -->
+        <div class="sheet-overlay" id="sheetOverlay"></div>
+
+        <!-- Customer Support Bottom Sheet Screen -->
+        <div class="bottom-sheet" id="customerCareSheet">
+            <div class="sheet-handle"></div>
+            <button class="close-sheet-btn" onclick="closeSheet('customerCareSheet')">&times;</button>
+            
+            <div class="sheet-logo-center">
+                <div class="logo-box">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
+                </div>
+                <h2>Sheik<span>ify</span></h2>
+            </div>
+
+            <h3 class="sheet-title">Customer Support</h3>
+            <p class="sheet-sub">We are here 24/7 to help you with your orders!</p>
+
+            <div class="contacts-list">
+                <div class="contact-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <div>
+                        <strong>Aamir Nisar Sheikh</strong>
+                        <a href="tel:+917051932522">+91 7051932522</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <strong>IRFAN Rashid</strong>
+                        <a href="tel:+919797488873">+91 9797488873</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <strong>Email Support</strong>
+                        <a href="mailto:Support.Sheikify@gmail.com">Support.Sheikify@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-channels">
+                <p>Connect with us on Social Media</p>
+                <div class="social-icons">
+                    <a href="#" class="soc-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="soc-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="soc-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="soc-btn telegram"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offers Bottom Sheet Screen -->
+        <div class="bottom-sheet" id="offersSheet">
+            <div class="sheet-handle"></div>
+            <button class="close-sheet-btn" onclick="closeSheet('offersSheet')">&times;</button>
+            
+            <div class="sheet-logo-center">
+                <div class="logo-box">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
+                </div>
+                <h2>Sheik<span>ify</span></h2>
+            </div>
+
+            <h3 class="sheet-title">Exclusive Offers & Discounts</h3>
+            <p class="sheet-sub">Handpicked mega savings on top products!</p>
+
+            <div class="items-grid">
+                <div class="grid-card">
+                    <div class="card-img-box">
+                        <i class="fa-solid fa-headphones"></i>
+                        <div class="tag-btn">-75% OFF</div>
+                    </div>
+                    <span>Wireless Headphones</span>
+                </div>
+                <div class="grid-card">
+                    <div class="card-img-box">
+                        <i class="fa-solid fa-shirt"></i>
+                        <div class="tag-btn">-80% OFF</div>
+                    </div>
+                    <span>Denim Jacket</span>
+                </div>
+                <div class="grid-card">
+                    <div class="card-img-box">
+                        <i class="fa-solid fa-laptop"></i>
+                        <div class="tag-btn">-65% OFF</div>
+                    </div>
+                    <span>Gaming Mouse</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Working Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="categories.html" class="nav-item active">
+                <i class="fa-solid fa-border-all"></i>
+                <span>Categories</span>
+            </a>
+            <a href="#" class="nav-item" onclick="openSheet('offersSheet')">
+                <i class="fa-solid fa-tag"></i>
+                <span>Offers</span>
+            </a>
+            <a href="#" class="nav-item" onclick="openSheet('customerCareSheet')">
+                <i class="fa-solid fa-headset"></i>
+                <span>Support</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <!-- Supabase SDK & Logic Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://qspwtvwaglhjmxkyjavn.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzcHd0dndhZ2xoam14a3lqYXZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4OTgzNDUsImV4cCI6MjEwMDQ3NDM0NX0.Y7e5zmRU6pmEIo74cTbH9HrBNBaQbW4ge1SorvCXEGI";
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const sidebar = document.getElementById('sidebar');
+        const contentArea = document.getElementById('contentArea');
+        const overlay = document.getElementById('sheetOverlay');
+
+        let productsData = [];
+        let categoriesMap = {};
+
+        // Default predefined list of categories to ensure all options show icons
+        const predefinedCategories = ['Fashion', 'Electronics', 'Mobiles', 'Gadgets', 'Home', 'Beauty', 'For_You'];
+
+        // Dynamic icon map configuration
+        const categoryIcons = {
+            'fashion': 'fa-solid fa-shirt',
+            'electronics': 'fa-solid fa-laptop',
+            'mobiles': 'fa-solid fa-mobile-screen-button',
+            'gadgets': 'fa-solid fa-stopwatch',
+            'home': 'fa-solid fa-couch',
+            'home & kitchen': 'fa-solid fa-couch',
+            'beauty': 'fa-solid fa-pump-soap',
+            'for_you': 'fa-solid fa-gift'
+        };
+
+        function getCategoryIcon(categoryName) {
+            const key = categoryName.toLowerCase().trim();
+            return categoryIcons[key] || 'fa-solid fa-layer-group';
+        }
+
+        // Fetch products directly from Supabase DB
+        async function fetchSupabaseData() {
+            const { data, error } = await _supabase
+                .from('products')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                console.error("Supabase error:", error);
+                contentArea.innerHTML = `<div class="loader-box" style="color: #ef4444;">Error loading categories.</div>`;
+                return;
+            }
+
+            productsData = data || [];
+            processCategories(productsData);
+        }
+
+        // Process Database Records into organized Map
+        function processCategories(products) {
+            categoriesMap = {};
+
+            // Initialize standard categories first so they always render icon items
+            predefinedCategories.forEach(cat => {
+                categoriesMap[cat] = {
+                    name: cat,
+                    icon: getCategoryIcon(cat),
+                    sections: {}
+                };
+            });
+
+            // Map database records
+            products.forEach(prod => {
+                const cat = prod.category ? prod.category.trim() : 'General';
+                const subcat = prod.subcategory ? prod.subcategory.trim() : 'Popular Items';
+
+                if (!categoriesMap[cat]) {
+                    categoriesMap[cat] = {
+                        name: cat,
+                        icon: getCategoryIcon(cat),
+                        sections: {}
+                    };
+                }
+
+                if (!categoriesMap[cat].sections[subcat]) {
+                    categoriesMap[cat].sections[subcat] = [];
+                }
+
+                categoriesMap[cat].sections[subcat].push(prod);
+            });
+
+            renderSidebar();
+        }
+
+        // Render Left Sidebar List
+        function renderSidebar() {
+            sidebar.innerHTML = '';
+            const categories = Object.keys(categoriesMap);
+
+            if (categories.length === 0) {
+                sidebar.innerHTML = `<div class="loader-box">No Items</div>`;
+                contentArea.innerHTML = `<div class="empty-box"><i class="fa-solid fa-box-open"></i>No Products Available</div>`;
+                return;
+            }
+
+            // Check URL Query parameter (e.g. categories.html?cat=Fashion)
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialCat = urlParams.get('cat');
+            
+            let activeCatKey = categories[0];
+            if (initialCat) {
+                const matchedKey = categories.find(c => c.toLowerCase() === initialCat.toLowerCase());
+                if (matchedKey) activeCatKey = matchedKey;
+            }
+
+            categories.forEach((catKey) => {
+                const cat = categoriesMap[catKey];
+                const item = document.createElement('div');
+                item.className = `side-item ${catKey === activeCatKey ? 'active' : ''}`;
+                item.onclick = () => selectCategory(catKey, item);
+                
+                item.innerHTML = `
+                    <div class="side-icon"><i class="${cat.icon}"></i></div>
+                    <span>${cat.name}</span>
+                `;
+                sidebar.appendChild(item);
+            });
+
+            // Auto-load right panel for default category
+            const activeItem = sidebar.querySelector('.side-item.active') || sidebar.firstChild;
+            selectCategory(activeCatKey, activeItem);
+        }
+
+        // Handle Category Item Click
+        function selectCategory(catKey, element) {
+            document.querySelectorAll('.side-item').forEach(el => el.classList.remove('active'));
+            if (element) element.classList.add('active');
+
+            const category = categoriesMap[catKey];
+            contentArea.innerHTML = '';
+
+            if (!category) return;
+
+            const sectionKeys = Object.keys(category.sections);
+
+            // Handle empty category scenario
+            if (sectionKeys.length === 0) {
+                contentArea.innerHTML = `
+                    <div class="empty-box">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <p>No items available in <strong>${category.name}</strong> category right now.</p>
+                    </div>`;
+                return;
+            }
+
+            sectionKeys.forEach(subcatTitle => {
+                const items = category.sections[subcatTitle];
+
+                const title = document.createElement('div');
+                title.className = 'section-title';
+                title.innerText = subcatTitle;
+                contentArea.appendChild(title);
+
+                const grid = document.createElement('div');
+                grid.className = 'items-grid';
+
+                items.forEach(prod => {
+                    const card = document.createElement('a');
+                    card.className = 'grid-card';
+                    card.href = `viewproduct.html?id=${prod.id}`;
+
+                    const discountBadge = prod.mrp && prod.price ? 
+                        `-${Math.round(((prod.mrp - prod.price) / prod.mrp) * 100)}%` : '';
+                    
+                    const badgeText = prod.golden_tag || discountBadge || 'BUY';
+
+                    card.innerHTML = `
+                        <div class="card-img-box">
+                            ${prod.image_url1 ? 
+                                `<img src="${prod.image_url1}" alt="${prod.title}" onerror="this.onerror=null; this.src='sheikh.png';">` : 
+                                `<i class="${category.icon}"></i>`
+                            }
+                            ${badgeText ? `<div class="tag-btn">${badgeText}</div>` : ''}
+                        </div>
+                        <span>${prod.title}</span>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                contentArea.appendChild(grid);
+            });
+        }
+
+        // Sheet Toggle Functions
+        function openSheet(sheetId) {
+            overlay.classList.add('active');
+            document.getElementById(sheetId).classList.add('active');
+        }
+
+        function closeSheet(sheetId) {
+            overlay.classList.remove('active');
+            document.getElementById(sheetId).classList.remove('active');
+        }
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            document.querySelectorAll('.bottom-sheet').forEach(sheet => {
+                sheet.classList.remove('active');
+            });
+        });
+
+        // Initialize Data Load
+        fetchSupabaseData();
+    </script>
+</body>
+</html>

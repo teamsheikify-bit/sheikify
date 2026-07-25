@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Product View - Sheikify</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="viewproduct.css">
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <div class="mobile-app-container">
+        
+        <!-- Premium Mobile Top Navigation Bar -->
+        <header class="app-top-bar">
+            <button class="icon-nav-btn" onclick="window.history.back()" aria-label="Back">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            
+            <!-- Sheikify Brand Logo + Marketplace Brand Dynamic Box -->
+            <div class="brand-header-box">
+                <div class="sheikify-brand">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="app-logo-img" onerror="this.style.display='none'">
+                    <span class="app-title-text">Sheik<span>ify</span></span>
+                </div>
+                <span class="divider-dot">•</span>
+                <div id="topMarketplaceLogo" class="marketplace-header-badge">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+
+            <button class="icon-nav-btn wishlist-btn" id="wishlistToggle" onclick="toggleWishlist()">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </header>
+
+        <!-- Main Product Content Zone -->
+        <main id="productDetailContent" class="main-scroll-content">
+            <div class="loader-state">
+                <i class="fa-solid fa-circle-notch fa-spin loader-icon"></i>
+                <p>Loading Best Deal...</p>
+            </div>
+        </main>
+
+        <!-- Sticky Bottom Bar (Buy Button) -->
+        <div class="sticky-bottom-bar" id="stickyBottomBar" style="display: none;">
+            <a href="#" id="buyNowBtn" target="_blank" class="premium-buy-btn">
+                <span>BUY NOW ON <strong id="mName">AMAZON</strong></span>
+                <i class="fa-solid fa-bolt"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        const SUPABASE_URL = "https://qspwtvwaglhjmxkyjavn.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzcHd0dndhZ2xoam14a3lqYXZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4OTgzNDUsImV4cCI6MjEwMDQ3NDM0NX0.Y7e5zmRU6pmEIo74cTbH9HrBNBaQbW4ge1SorvCXEGI";
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        let currentSlide = 0;
+        let slideImages = [];
+        let autoSlideInterval = null;
+
+        // Marketplace Badges Helper
+        function getMarketplaceBadgeHTML(m) {
+            const map = {
+                'amazon': '<span class="m-chip amazon"><i class="fa-brands fa-amazon"></i> Amazon</span>',
+                'flipkart': '<span class="m-chip flipkart"><i class="fa-solid fa-bolt"></i> Flipkart</span>',
+                'myntra': '<span class="m-chip myntra">M Myntra</span>',
+                'ajio': '<span class="m-chip ajio">AJIO</span>',
+                'meesho': '<span class="m-chip meesho">Meesho</span>',
+                'nykaa': '<span class="m-chip nykaa">Nykaa</span>'
+            };
+            return map[m.toLowerCase()] || `<span class="m-chip default">${m.toUpperCase()}</span>`;
+        }
+
+        async function loadDetails() {
+            if (!productId) {
+                document.getElementById('productDetailContent').innerHTML = `
+                    <div class="error-state">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <p>No product specified.</p>
+                    </div>`;
+                return;
+            }
+
+            const { data: product, error } = await _supabase.from('products').select('*').eq('id', productId).single();
+
+            if (error || !product) {
+                document.getElementById('productDetailContent').innerHTML = `
+                    <div class="error-state">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <p>Product details not found!</p>
+                    </div>`;
+                return;
+            }
+
+            // Render Header Marketplace Tag
+            document.getElementById('topMarketplaceLogo').innerHTML = getMarketplaceBadgeHTML(product.marketplace);
+
+            // Setup Sticky Buy Button
+            const buyBtn = document.getElementById('buyNowBtn');
+            const mName = document.getElementById('mName');
+            buyBtn.href = product.affiliate_link;
+            mName.innerText = product.marketplace.toUpperCase();
+            document.getElementById('stickyBottomBar').style.display = 'block';
+
+            // Filter Valid Slider Images
+            slideImages = [product.image_url1, product.image_url2, product.image_url3].filter(Boolean);
+
+            const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100);
+
+            document.getElementById('productDetailContent').innerHTML = `
+                <!-- Image Slider -->
+                <div class="slider-container" id="sliderContainer">
+                    <div class="slider-track" id="sliderTrack">
+                        ${slideImages.map((img, index) => `
+                            <div class="slide">
+                                <img src="${img}" alt="${product.title}" onerror="this.src='sheikh.png'">
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    ${product.golden_tag ? `<div class="golden-badge"><i class="fa-solid fa-crown"></i> ${product.golden_tag}</div>` : ''}
+
+                    <div class="discount-pill">-${discount}% OFF</div>
+
+                    <div class="slider-dots" id="sliderDots">
+                        ${slideImages.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></span>`).join('')}
+                    </div>
+                </div>
+
+                <!-- Product Info Card -->
+                <div class="product-info-card">
+                    <div class="meta-row">
+                        <div class="rating-badge">
+                            <i class="fa-solid fa-star"></i>
+                            <span>${product.rating || '4.5'}</span>
+                        </div>
+                        <div class="verified-tag">
+                            <i class="fa-solid fa-shield-halved"></i> 100% Verified Deal
+                        </div>
+                    </div>
+
+                    <h1 class="product-title">${product.title}</h1>
+
+                    <div class="pricing-card">
+                        <div class="price-box">
+                            <span class="currency">₹</span>
+                            <span class="main-price">${product.price.toLocaleString('en-IN')}</span>
+                            <span class="mrp-price">MRP ₹${product.mrp.toLocaleString('en-IN')}</span>
+                        </div>
+                        <div class="savings-text">You Save ₹${(product.mrp - product.price).toLocaleString('en-IN')}</div>
+                    </div>
+
+                    <!-- Marketplace Platform Assurance -->
+                    <div class="platform-card">
+                        <div class="platform-info">
+                            <i class="fa-solid fa-store"></i>
+                            <div>
+                                <p class="label">Fulfilled & Sold By</p>
+                                <h4>Official ${product.marketplace.toUpperCase()} Store</h4>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-circle-check check-icon"></i>
+                    </div>
+
+                    <!-- Description Section -->
+                    <div class="description-section">
+                        <h3><i class="fa-solid fa-align-left"></i> Overview & Features</h3>
+                        <p class="desc-content">${product.description ? product.description.replace(/\n/g, '<br>') : 'No extra details provided for this item.'}</p>
+                    </div>
+
+                    <div class="trust-footer-notes">
+                        <div class="note-item"><i class="fa-solid fa-truck-fast"></i> Fast Delivery</div>
+                        <div class="note-item"><i class="fa-solid fa-arrows-rotate"></i> Easy Returns</div>
+                        <div class="note-item"><i class="fa-solid fa-lock"></i> Secure Pay</div>
+                    </div>
+                </div>
+            `;
+
+            initSliderEvents();
+            startAutoSlider();
+        }
+
+        // Slider Dot Click
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSliderUI();
+            resetAutoSlider();
+        }
+
+        function updateSliderUI() {
+            const track = document.getElementById('sliderTrack');
+            const dots = document.querySelectorAll('.slider-dots .dot');
+            if (track) {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function startAutoSlider() {
+            if (slideImages.length <= 1) return;
+            autoSlideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slideImages.length;
+                updateSliderUI();
+            }, 3500);
+        }
+
+        function resetAutoSlider() {
+            clearInterval(autoSlideInterval);
+            startAutoSlider();
+        }
+
+        // Touch Swipe Gesture Support
+        function initSliderEvents() {
+            const container = document.getElementById('sliderContainer');
+            if (!container || slideImages.length <= 1) return;
+
+            let startX = 0;
+            let endX = 0;
+
+            container.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            container.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                if (startX - endX > 40) {
+                    // Swipe Left
+                    currentSlide = (currentSlide + 1) % slideImages.length;
+                    updateSliderUI();
+                    resetAutoSlider();
+                } else if (endX - startX > 40) {
+                    // Swipe Right
+                    currentSlide = (currentSlide - 1 + slideImages.length) % slideImages.length;
+                    updateSliderUI();
+                    resetAutoSlider();
+                }
+            }, { passive: true });
+        }
+
+        // Wishlist Toggle Animation
+        function toggleWishlist() {
+            const btn = document.getElementById('wishlistToggle');
+            const icon = btn.querySelector('i');
+            btn.classList.toggle('active');
+            if (btn.classList.contains('active')) {
+                icon.className = 'fa-solid fa-heart';
+                icon.style.color = '#ef4444';
+            } else {
+                icon.className = 'fa-regular fa-heart';
+                icon.style.color = '#0f172a';
+            }
+        }
+
+        loadDetails();
+    </script>
+</body>
+</html>

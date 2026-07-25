@@ -1,0 +1,206 @@
+/* ==========================================
+   UPDATED 3D SPLASH SCREEN STYLES (Clean/Orange Theme)
+   ========================================== */
+
+.splash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Bright & Clean Light Background matching image */
+    background: radial-gradient(circle at 50% 40%, #ffffff 0%, #f8fafc 60%, #e2e8f0 100%);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+}
+
+.splash-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.08);
+}
+
+/* Glowing Orbs matched to Orange & Warm Accents */
+.bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    animation: floatOrb 6s infinite ease-in-out alternate;
+}
+
+.glow-1 {
+    width: 250px;
+    height: 250px;
+    background: #f59e0b; /* Sheikify Orange */
+    top: 15%;
+    left: 10%;
+}
+
+.glow-2 {
+    width: 260px;
+    height: 260px;
+    background: #fbbf24;
+    bottom: 15%;
+    right: 5%;
+    animation-delay: -3s;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(25px, -30px) scale(1.15); }
+}
+
+/* Graphic Wrapper */
+.brand-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo-3d-box {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: pulse3D 3s infinite ease-in-out;
+    margin-bottom: 24px;
+}
+
+.logo-glass {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 20px 35px rgba(0, 0, 0, 0.08),
+        inset 0 0 15px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(245, 158, 11, 0.2);
+    transform: rotateX(12deg) rotateY(-12deg);
+    overflow: hidden;
+}
+
+.logo-3d-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.15));
+    animation: bounceS 2.5s infinite ease-in-out;
+}
+
+.orbit-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px dashed rgba(245, 158, 11, 0.5);
+    border-radius: 42px;
+    animation: spinRing 12s linear infinite;
+}
+
+/* Brand Title & Typography Matching Image */
+.brand-title {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #000000; /* Sheik black */
+    margin-bottom: 6px;
+}
+
+.brand-title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) rotateX(-90deg);
+    animation: revealLetter 0.6s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* "ify" part in Orange Color */
+.brand-title span.blue-text {
+    color: #f59e0b;
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-title span:nth-child(1) { animation-delay: 0.1s; }
+.brand-title span:nth-child(2) { animation-delay: 0.2s; }
+.brand-title span:nth-child(3) { animation-delay: 0.3s; }
+.brand-title span:nth-child(4) { animation-delay: 0.4s; }
+.brand-title span:nth-child(5) { animation-delay: 0.5s; }
+.brand-title span:nth-child(6) { animation-delay: 0.6s; }
+.brand-title span:nth-child(7) { animation-delay: 0.7s; }
+.brand-title span:nth-child(8) { animation-delay: 0.8s; }
+
+.brand-tagline {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInTag 0.8s 1.1s forwards ease-out;
+}
+
+/* Progress Bar */
+.progress-wrapper {
+    position: absolute;
+    bottom: 50px;
+    width: 140px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #000000, #f59e0b);
+    border-radius: 10px;
+    animation: loadProgress 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframe Animations */
+@keyframes pulse3D {
+    0%, 100% { transform: translateY(0) rotateX(12deg) rotateY(-12deg); }
+    50% { transform: translateY(-10px) rotateX(16deg) rotateY(-6deg); }
+}
+
+@keyframes bounceS {
+    0%, 100% { transform: translateZ(0px); }
+    50% { transform: translateZ(20px); }
+}
+
+@keyframes spinRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes revealLetter {
+    to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+@keyframes fadeInTag {
+    to { opacity: 1; }
+}
+
+@keyframes loadProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}

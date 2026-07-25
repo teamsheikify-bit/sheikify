@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #0f172a;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header / Brand Top Bar */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    z-index: 10;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo-text h2 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.1;
+}
+
+.logo-text h2 span {
+    color: #f59e0b;
+}
+
+.logo-text p {
+    font-size: 8px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.header-title-tag {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    background: #f1f5f9;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+/* Main Dual Pane Content */
+.main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Left Sidebar Categories Menu */
+.sidebar {
+    width: 90px;
+    background: #f8fafc;
+    border-right: 1px solid #f1f5f9;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar { display: none; }
+
+.side-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 6px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.side-item.active {
+    background: #ffffff;
+    border-left-color: #2563eb;
+}
+
+.side-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #475569;
+    margin-bottom: 6px;
+    overflow: hidden;
+}
+
+.side-item.active .side-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.side-item span {
+    font-size: 10px;
+    font-weight: 600;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.side-item.active span {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+/* Right Scrollable Content Area */
+.content-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 80px;
+    background: #fff;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 15px 0 12px;
+    text-transform: capitalize;
+}
+
+.section-title:first-child {
+    margin-top: 0;
+}
+
+/* Product Grid Modern Cards */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grid-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card-img-box {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f8fafc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 6px;
+    overflow: hidden;
+    border: 1px solid #f1f5f9;
+}
+
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-img-box i {
+    font-size: 26px;
+    color: #334155;
+}
+
+.tag-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #0d9488;
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    text-align: center;
+    padding: 2px 0;
+    text-transform: uppercase;
+}
+
+.grid-card span {
+    font-size: 10px;
+    font-weight: 600;
+    color: #1e293b;
+    text-align: center;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 20;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item.active { color: #2563eb; }
+
+/* Empty & Loader Box UI */
+.loader-box, .empty-box {
+    text-align: center;
+    padding: 40px 15px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.empty-box i {
+    font-size: 32px;
+    color: #cbd5e1;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Bottom Sheets & Overlay Styles */
+.sheet-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 25;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.sheet-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottom-sheet {
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px;
+    z-index: 30;
+    transition: all 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.bottom-sheet.active {
+    bottom: 0;
+}
+
+.sheet-handle {
+    width: 40px;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin: 0 auto 15px;
+}
+
+.close-sheet-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.sheet-logo-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.sheet-logo-center .logo-box {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 6px;
+}
+
+.sheet-logo-center h2 {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.sheet-logo-center h2 span { color: #2563eb; }
+
+.sheet-title {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    color: #0f172a;
+}
+
+.sheet-sub {
+    font-size: 11px;
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.contact-card i {
+    font-size: 20px;
+    color: #2563eb;
+}
+
+.contact-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card strong {
+    font-size: 12px;
+    color: #0f172a;
+}
+
+.contact-card a {
+    font-size: 12px;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.social-channels {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.social-channels p {
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.soc-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.soc-btn.whatsapp { background: #25d366; }
+.soc-btn.instagram { background: #e1306c; }
+.soc-btn.facebook { background: #1877f2; }
+.soc-btn.telegram { background: #0088cc; }
