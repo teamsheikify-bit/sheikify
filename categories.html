@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Link to Separate External CSS -->
     <link rel="stylesheet" href="categories.css">
+     <link rel="stylesheet" href="sheikh.css">
 </head>
 <body>
 
@@ -72,8 +73,8 @@
                 <div class="contact-card">
                     <i class="fa-solid fa-headset"></i>
                     <div>
-                        <strong>IRFAN Rashid</strong>
-                        <a href="tel:+919797488873">+91 9797488873</a>
+                        <strong>Erfan Rashid</strong>
+                        <a href="tel:+919149658802">+91 9149658802</a>
                     </div>
                 </div>
                 <div class="contact-card">
@@ -173,10 +174,20 @@
         let categoriesMap = {};
 
         // Default predefined list of categories to ensure all options show icons
-        const predefinedCategories = ['Fashion', 'Electronics', 'Mobiles', 'Gadgets', 'Home', 'Beauty', 'For_You'];
+        const predefinedCategories = [
+    'All Categories',
+    'Fashion',
+    'Electronics',
+    'Mobiles',
+    'Gadgets',
+    'Home',
+    'Beauty',
+    'For_You'
+];
 
         // Dynamic icon map configuration
         const categoryIcons = {
+          'all categories': 'fa-solid fa-layer-group',
             'fashion': 'fa-solid fa-shirt',
             'electronics': 'fa-solid fa-laptop',
             'mobiles': 'fa-solid fa-mobile-screen-button',
@@ -212,15 +223,28 @@
         // Process Database Records into organized Map
         function processCategories(products) {
             categoriesMap = {};
+            categoriesMap["All Categories"] = {
+    name: "All Categories",
+    icon: "fa-solid fa-layer-group",
+    sections: {
+        "All Products": products
+    }
+};
+            
+            
+            
+            
 
             // Initialize standard categories first so they always render icon items
             predefinedCategories.forEach(cat => {
-                categoriesMap[cat] = {
-                    name: cat,
-                    icon: getCategoryIcon(cat),
-                    sections: {}
-                };
-            });
+    if (!categoriesMap[cat]) {
+        categoriesMap[cat] = {
+            name: cat,
+            icon: getCategoryIcon(cat),
+            sections: {}
+        };
+    }
+});
 
             // Map database records
             products.forEach(prod => {
