@@ -45,9 +45,10 @@
             </div>
         </main>
 
-        <!-- Sticky Bottom Bar (Buy Button) -->
+        <!-- Fixed Bottom Bar (Buy Button) -->
         <div class="sticky-bottom-bar" id="stickyBottomBar" style="display: none;">
             <a href="#" id="buyNowBtn" target="_blank" class="premium-buy-btn">
+                <img id="btnLogoImg" src="" alt="Brand Logo" class="btn-brand-logo" onerror="this.style.display='none'">
                 <span>BUY NOW ON <strong id="mName">AMAZON</strong></span>
                 <i class="fa-solid fa-bolt"></i>
             </a>
@@ -68,17 +69,52 @@
         let slideImages = [];
         let autoSlideInterval = null;
 
-        // Marketplace Badges Helper
-        function getMarketplaceBadgeHTML(m) {
-            const map = {
-                'amazon': '<span class="m-chip amazon"><i class="fa-brands fa-amazon"></i> Amazon</span>',
-                'flipkart': '<span class="m-chip flipkart"><i class="fa-solid fa-bolt"></i> Flipkart</span>',
-                'myntra': '<span class="m-chip myntra">M Myntra</span>',
-                'ajio': '<span class="m-chip ajio">AJIO</span>',
-                'meesho': '<span class="m-chip meesho">Meesho</span>',
-                'nykaa': '<span class="m-chip nykaa">Nykaa</span>'
+        // Marketplace Details & Logos Config
+        const BRAND_CONFIG = {
+            'amazon': {
+                name: 'Amazon',
+                badgeClass: 'amazon',
+                logo: 'https://i.ibb.co/KcwW7nWg/oak-Image-1614794068335-article-Large.jpg'
+            },
+            'flipkart': {
+                name: 'Flipkart',
+                badgeClass: 'flipkart',
+                logo: 'https://i.ibb.co/99M9Rdbx/flipkart-logo-rounded-flipkart-logo-free-download-flipkart-logo-free-png.png'
+            },
+            'myntra': {
+                name: 'Myntra',
+                badgeClass: 'myntra',
+                logo: 'https://i.ibb.co/MywB4f56/myntra-logo-myntra-icon-transparent-background-free-png.png'
+            },
+            'meesho': {
+                name: 'Meesho',
+                badgeClass: 'meesho',
+                logo: 'https://i.ibb.co/m5pBRG2B/meesho-transparent-icon-free-png.png'
+            },
+            'ajio': {
+                name: 'AJIO',
+                badgeClass: 'ajio',
+                logo: 'https://i.ibb.co/8g71Dmkn/61675b089b1c8-384x384.png'
+            },
+            'nykaa': {
+                name: 'Nykaa',
+                badgeClass: 'nykaa',
+                logo: 'https://i.ibb.co/VcSYz6S7/free-nykaa-logo-icon-svg-download-png-2822953.webp'
+            }
+        };
+
+        function getMarketplaceDetails(mKey) {
+            const key = (mKey || '').toLowerCase();
+            return BRAND_CONFIG[key] || {
+                name: mKey ? mKey.toUpperCase() : 'STORE',
+                badgeClass: 'default',
+                logo: ''
             };
-            return map[m.toLowerCase()] || `<span class="m-chip default">${m.toUpperCase()}</span>`;
+        }
+
+        function getMarketplaceBadgeHTML(brand) {
+            const logoImg = brand.logo ? `<img src="${brand.logo}" alt="${brand.name}">` : '';
+            return `<span class="m-chip ${brand.badgeClass}">${logoImg} ${brand.name}</span>`;
         }
 
         async function loadDetails() {
@@ -102,14 +138,26 @@
                 return;
             }
 
-            // Render Header Marketplace Tag
-            document.getElementById('topMarketplaceLogo').innerHTML = getMarketplaceBadgeHTML(product.marketplace);
+            const brand = getMarketplaceDetails(product.marketplace);
 
-            // Setup Sticky Buy Button
+            // Render Header Marketplace Tag
+            document.getElementById('topMarketplaceLogo').innerHTML = getMarketplaceBadgeHTML(brand);
+
+            // Setup Fixed Bottom Buy Button
             const buyBtn = document.getElementById('buyNowBtn');
             const mName = document.getElementById('mName');
+            const btnLogoImg = document.getElementById('btnLogoImg');
+            
             buyBtn.href = product.affiliate_link;
-            mName.innerText = product.marketplace.toUpperCase();
+            mName.innerText = brand.name.toUpperCase();
+            
+            if (brand.logo) {
+                btnLogoImg.src = brand.logo;
+                btnLogoImg.style.display = 'inline-block';
+            } else {
+                btnLogoImg.style.display = 'none';
+            }
+
             document.getElementById('stickyBottomBar').style.display = 'block';
 
             // Filter Valid Slider Images
@@ -121,7 +169,7 @@
                 <!-- Image Slider -->
                 <div class="slider-container" id="sliderContainer">
                     <div class="slider-track" id="sliderTrack">
-                        ${slideImages.map((img, index) => `
+                        ${slideImages.map((img) => `
                             <div class="slide">
                                 <img src="${img}" alt="${product.title}" onerror="this.src='sheikh.png'">
                             </div>
@@ -166,7 +214,7 @@
                             <i class="fa-solid fa-store"></i>
                             <div>
                                 <p class="label">Fulfilled & Sold By</p>
-                                <h4>Official ${product.marketplace.toUpperCase()} Store</h4>
+                                <h4>Official ${brand.name} Store</h4>
                             </div>
                         </div>
                         <i class="fa-solid fa-circle-check check-icon"></i>
