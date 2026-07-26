@@ -477,24 +477,23 @@
 window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
     deferredPrompt = e;
-
     document.getElementById("installPopup").style.display = "flex";
 });
 
 document.getElementById("installBtn").addEventListener("click", async () => {
 
     if (!deferredPrompt) {
-        alert("App is not ready to install yet.");
+        alert("Install not available.");
         return;
     }
 
+    document.getElementById("installPopup").style.display = "none";
+
     deferredPrompt.prompt();
 
-    const { outcome } = await deferredPrompt.userChoice;
+    const choice = await deferredPrompt.userChoice;
 
-    if (outcome === "accepted") {
-        console.log("Installed");
-    }
+    console.log(choice.outcome);
 
     deferredPrompt = null;
 });
