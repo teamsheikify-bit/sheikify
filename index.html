@@ -473,9 +473,6 @@
 
     <!-- Scripts -->
     <script>
-      window.addEventListener("beforeinstallprompt", (e) => {
-    // Browser ka default install prompt allow karo
-});
       
       
         // Dynamic Icon Looping Sequence Engine (Gift -> Shirt -> Laptop -> Tag)
@@ -778,6 +775,33 @@
 
         fetchProducts();
     </script>
+    
+    <script>
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // 2 second baad install popup dikhao
+    setTimeout(async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log("Install:", outcome);
+
+            deferredPrompt = null;
+        }
+    }, 2000);
+});
+
+window.addEventListener("appinstalled", () => {
+    console.log("App Installed");
+});
+</script>
+    
+    
     <script>
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js")
