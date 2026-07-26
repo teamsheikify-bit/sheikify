@@ -942,3 +942,61 @@ body {
     overflow-y: auto;
     padding-right: 5px;
 }
+
+
+
+
+#installPopup{
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: calc(100% - 30px);
+    max-width: 380px;
+    background: #0f172a;
+    color: #fff;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 99999;
+}
+
+#installPopup h2{
+    margin:0 0 8px;
+    font-size:22px;
+}
+
+#installPopup p{
+    margin:0 0 18px;
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+#installBtn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#f59e0b;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
