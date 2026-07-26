@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Categories - Sheikify</title>
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link to Separate External CSS -->
+    
+    <!-- External CSS Links -->
+    <link rel="stylesheet" href="sheikh.css">
     <link rel="stylesheet" href="categories.css">
-     <link rel="stylesheet" href="sheikh.css">
 </head>
 <body>
 
     <div class="app-container">
         
-        <!-- Updated Top Header Zone -->
-        <div class="top-bar">
+        <!-- Top Header Zone -->
+        <header class="top-bar">
             <div class="logo-container">
                 <div class="logo-box">
-                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/36';">
                 </div>
                 <div class="logo-text">
                     <h2>Sheik<span>ify</span></h2>
@@ -27,34 +28,34 @@
                 </div>
             </div>
             <div class="header-title-tag">Categories</div>
-        </div>
+        </header>
 
         <!-- Main Content Layout Pane -->
-        <div class="main-layout">
+        <main class="main-layout">
             
             <!-- Dynamic Left Sidebar -->
-            <div class="sidebar" id="sidebar">
+            <aside class="sidebar" id="sidebar">
                 <div class="loader-box"><i class="fa-solid fa-spinner fa-spin"></i></div>
-            </div>
+            </aside>
 
             <!-- Dynamic Right Content View -->
-            <div class="content-area" id="contentArea">
+            <section class="content-area" id="contentArea">
                 <div class="loader-box"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</div>
-            </div>
+            </section>
 
-        </div>
+        </main>
 
-        <!-- Overlay for Sheets -->
+        <!-- Overlay Backdrop for Sheets -->
         <div class="sheet-overlay" id="sheetOverlay"></div>
 
         <!-- Customer Support Bottom Sheet Screen -->
         <div class="bottom-sheet" id="customerCareSheet">
             <div class="sheet-handle"></div>
-            <button class="close-sheet-btn" onclick="closeSheet('customerCareSheet')">&times;</button>
+            <button class="close-sheet-btn" onclick="closeSheet('customerCareSheet')" aria-label="Close">&times;</button>
             
             <div class="sheet-logo-center">
                 <div class="logo-box">
-                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/50';">
                 </div>
                 <h2>Sheik<span>ify</span></h2>
             </div>
@@ -89,7 +90,7 @@
             <div class="social-channels">
                 <p>Connect with us on Social Media</p>
                 <div class="social-icons">
-                    <a href="#" class="soc-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://wa.me/917051932522" target="_blank" class="soc-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
                     <a href="#" class="soc-btn instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" class="soc-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="soc-btn telegram"><i class="fa-brands fa-telegram"></i></a>
@@ -100,62 +101,40 @@
         <!-- Offers Bottom Sheet Screen -->
         <div class="bottom-sheet" id="offersSheet">
             <div class="sheet-handle"></div>
-            <button class="close-sheet-btn" onclick="closeSheet('offersSheet')">&times;</button>
+            <button class="close-sheet-btn" onclick="closeSheet('offersSheet')" aria-label="Close">&times;</button>
             
             <div class="sheet-logo-center">
                 <div class="logo-box">
-                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/50';">
                 </div>
                 <h2>Sheik<span>ify</span></h2>
             </div>
 
-            <h3 class="sheet-title">Exclusive Offers & Discounts</h3>
+            <h3 class="sheet-title"><i class="fa-solid fa-fire" style="color: #f59e0b;"></i> Exclusive Offers & Discounts</h3>
             <p class="sheet-sub">Handpicked mega savings on top products!</p>
 
-            <div class="items-grid">
-                <div class="grid-card">
-                    <div class="card-img-box">
-                        <i class="fa-solid fa-headphones"></i>
-                        <div class="tag-btn">-75% OFF</div>
-                    </div>
-                    <span>Wireless Headphones</span>
-                </div>
-                <div class="grid-card">
-                    <div class="card-img-box">
-                        <i class="fa-solid fa-shirt"></i>
-                        <div class="tag-btn">-80% OFF</div>
-                    </div>
-                    <span>Denim Jacket</span>
-                </div>
-                <div class="grid-card">
-                    <div class="card-img-box">
-                        <i class="fa-solid fa-laptop"></i>
-                        <div class="tag-btn">-65% OFF</div>
-                    </div>
-                    <span>Gaming Mouse</span>
-                </div>
+            <div class="items-grid" id="offersGrid">
+                <div class="loader-box"><i class="fa-solid fa-spinner fa-spin"></i> Loading Offers...</div>
             </div>
         </div>
 
-        <!-- Working Bottom Navigation Bar -->
-        <nav class="bottom-nav">
-            <a href="index.html" class="nav-item">
-                <i class="fa-solid fa-house"></i>
-                <span>Home</span>
-            </a>
-            <a href="categories.html" class="nav-item active">
-                <i class="fa-solid fa-border-all"></i>
-                <span>Categories</span>
-            </a>
-            <a href="#" class="nav-item" onclick="openSheet('offersSheet')">
-                <i class="fa-solid fa-tag"></i>
-                <span>Offers</span>
-            </a>
-            <a href="#" class="nav-item" onclick="openSheet('customerCareSheet')">
-                <i class="fa-solid fa-headset"></i>
-                <span>Support</span>
-            </a>
-        </nav>
+        <!-- 3D Footer Action Bar with Back Button -->
+        <footer class="footer-3d-bar">
+            <button class="btn-3d btn-back" onclick="window.history.back()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back</span>
+            </button>
+            <div class="footer-actions">
+                <button class="btn-3d btn-offers" onclick="openSheet('offersSheet')">
+                    <i class="fa-solid fa-tags"></i>
+                    <span>Offers</span>
+                </button>
+                <button class="btn-3d btn-support" onclick="openSheet('customerCareSheet')">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>Support</span>
+                </button>
+            </div>
+        </footer>
 
     </div>
 
@@ -169,32 +148,36 @@
         const sidebar = document.getElementById('sidebar');
         const contentArea = document.getElementById('contentArea');
         const overlay = document.getElementById('sheetOverlay');
+        const offersGrid = document.getElementById('offersGrid');
 
         let productsData = [];
         let categoriesMap = {};
 
-        // Default predefined list of categories to ensure all options show icons
         const predefinedCategories = [
-    'All Categories',
-    'Fashion',
-    'Electronics',
-    'Mobiles',
-    'Gadgets',
-    'Home',
-    'Beauty',
-    'For_You'
-];
+            'All Categories',
+            'Fashion',
+            'Electronics',
+            'Mobiles',
+            'Gadgets',
+            'Home & Kitchen',
+            'Beauty',
+            'Footwear',
+            'Watches',
+            'Grocery'
+        ];
 
-        // Dynamic icon map configuration
         const categoryIcons = {
-          'all categories': 'fa-solid fa-layer-group',
+            'all categories': 'fa-solid fa-layer-group',
             'fashion': 'fa-solid fa-shirt',
             'electronics': 'fa-solid fa-laptop',
             'mobiles': 'fa-solid fa-mobile-screen-button',
             'gadgets': 'fa-solid fa-stopwatch',
-            'home': 'fa-solid fa-couch',
             'home & kitchen': 'fa-solid fa-couch',
+            'home': 'fa-solid fa-couch',
             'beauty': 'fa-solid fa-pump-soap',
+            'footwear': 'fa-solid fa-shoe-prints',
+            'watches': 'fa-solid fa-clock',
+            'grocery': 'fa-solid fa-basket-shopping',
             'for_you': 'fa-solid fa-gift'
         };
 
@@ -203,7 +186,6 @@
             return categoryIcons[key] || 'fa-solid fa-layer-group';
         }
 
-        // Fetch products directly from Supabase DB
         async function fetchSupabaseData() {
             const { data, error } = await _supabase
                 .from('products')
@@ -218,39 +200,21 @@
 
             productsData = data || [];
             processCategories(productsData);
+            renderOffersSheet(productsData);
         }
 
-        // Process Database Records into organized Map
         function processCategories(products) {
             categoriesMap = {};
+
             categoriesMap["All Categories"] = {
-    name: "All Categories",
-    icon: "fa-solid fa-layer-group",
-    sections: {
-        "All Products": products
-    }
-};
-            
-            
-            
-            
+                name: "All Categories",
+                icon: "fa-solid fa-layer-group",
+                sections: {
+                    "All Products": products
+                }
+            };
 
-            // Initialize standard categories first so they always render icon items
             predefinedCategories.forEach(cat => {
-    if (!categoriesMap[cat]) {
-        categoriesMap[cat] = {
-            name: cat,
-            icon: getCategoryIcon(cat),
-            sections: {}
-        };
-    }
-});
-
-            // Map database records
-            products.forEach(prod => {
-                const cat = prod.category ? prod.category.trim() : 'General';
-                const subcat = prod.subcategory ? prod.subcategory.trim() : 'Popular Items';
-
                 if (!categoriesMap[cat]) {
                     categoriesMap[cat] = {
                         name: cat,
@@ -258,18 +222,33 @@
                         sections: {}
                     };
                 }
+            });
 
-                if (!categoriesMap[cat].sections[subcat]) {
-                    categoriesMap[cat].sections[subcat] = [];
+            products.forEach(prod => {
+                const cat = prod.category ? prod.category.trim() : 'General';
+                const subcat = prod.subcategory ? prod.subcategory.trim() : 'Popular Items';
+
+                let matchedCat = Object.keys(categoriesMap).find(c => c.toLowerCase() === cat.toLowerCase());
+                
+                if (!matchedCat) {
+                    matchedCat = cat;
+                    categoriesMap[matchedCat] = {
+                        name: matchedCat,
+                        icon: getCategoryIcon(matchedCat),
+                        sections: {}
+                    };
                 }
 
-                categoriesMap[cat].sections[subcat].push(prod);
+                if (!categoriesMap[matchedCat].sections[subcat]) {
+                    categoriesMap[matchedCat].sections[subcat] = [];
+                }
+
+                categoriesMap[matchedCat].sections[subcat].push(prod);
             });
 
             renderSidebar();
         }
 
-        // Render Left Sidebar List
         function renderSidebar() {
             sidebar.innerHTML = '';
             const categories = Object.keys(categoriesMap);
@@ -280,7 +259,6 @@
                 return;
             }
 
-            // Check URL Query parameter (e.g. categories.html?cat=Fashion)
             const urlParams = new URLSearchParams(window.location.search);
             const initialCat = urlParams.get('cat');
             
@@ -303,12 +281,10 @@
                 sidebar.appendChild(item);
             });
 
-            // Auto-load right panel for default category
             const activeItem = sidebar.querySelector('.side-item.active') || sidebar.firstChild;
             selectCategory(activeCatKey, activeItem);
         }
 
-        // Handle Category Item Click
         function selectCategory(catKey, element) {
             document.querySelectorAll('.side-item').forEach(el => el.classList.remove('active'));
             if (element) element.classList.add('active');
@@ -320,7 +296,6 @@
 
             const sectionKeys = Object.keys(category.sections);
 
-            // Handle empty category scenario
             if (sectionKeys.length === 0) {
                 contentArea.innerHTML = `
                     <div class="empty-box">
@@ -368,7 +343,44 @@
             });
         }
 
-        // Sheet Toggle Functions
+        function renderOffersSheet(products) {
+            const offerProducts = products.filter(p => p.is_offer === true || p.golden_tag);
+            const displayOffers = offerProducts.length > 0 ? offerProducts : products.slice(0, 6);
+
+            if (displayOffers.length === 0) {
+                offersGrid.innerHTML = `
+                    <div class="empty-box" style="grid-column: span 3;">
+                        <i class="fa-solid fa-tags"></i>
+                        <p>No special offers active at the moment.</p>
+                    </div>`;
+                return;
+            }
+
+            offersGrid.innerHTML = '';
+            displayOffers.forEach(prod => {
+                const card = document.createElement('a');
+                card.className = 'grid-card';
+                card.href = `viewproduct.html?id=${prod.id}`;
+
+                const discountBadge = prod.mrp && prod.price ? 
+                    `-${Math.round(((prod.mrp - prod.price) / prod.mrp) * 100)}%` : 'OFFER';
+                
+                const badgeText = prod.golden_tag || discountBadge;
+
+                card.innerHTML = `
+                    <div class="card-img-box">
+                        ${prod.image_url1 ? 
+                            `<img src="${prod.image_url1}" alt="${prod.title}" onerror="this.onerror=null; this.src='sheikh.png';">` : 
+                            `<i class="fa-solid fa-gift"></i>`
+                        }
+                        <div class="tag-btn">${badgeText}</div>
+                    </div>
+                    <span>${prod.title}</span>
+                `;
+                offersGrid.appendChild(card);
+            });
+        }
+
         function openSheet(sheetId) {
             overlay.classList.add('active');
             document.getElementById(sheetId).classList.add('active');
@@ -386,7 +398,6 @@
             });
         });
 
-        // Initialize Data Load
         fetchSupabaseData();
     </script>
 </body>
