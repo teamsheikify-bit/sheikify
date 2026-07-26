@@ -470,40 +470,14 @@
 
 
 
-<script>
-  
-  let deferredPrompt;
-
-window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    document.getElementById("installPopup").style.display = "flex";
-});
-
-document.getElementById("installBtn").addEventListener("click", async () => {
-
-    if (!deferredPrompt) {
-        alert("Install not available.");
-        return;
-    }
-
-    document.getElementById("installPopup").style.display = "none";
-
-    deferredPrompt.prompt();
-
-    const choice = await deferredPrompt.userChoice;
-
-    console.log(choice.outcome);
-
-    deferredPrompt = null;
-});
-  
-  
-</script>
-
 
     <!-- Scripts -->
     <script>
+      window.addEventListener("beforeinstallprompt", (e) => {
+    // Browser ka default install prompt allow karo
+});
+      
+      
         // Dynamic Icon Looping Sequence Engine (Gift -> Shirt -> Laptop -> Tag)
         const OFFER_LOOP_ICONS = [
             'fa-gift',
@@ -812,10 +786,7 @@ if ("serviceWorker" in navigator) {
 }
 </script>
     
-    <div id="installPopup">
-    <h2>Install Sheikify</h2>
-    <p>Install app for a better experience.</p>
-    <button id="installBtn">Install Now</button>
+
 </div>
     
 </body>
