@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="splash.css">
     <link rel="stylesheet" href="offer.css">
     <link rel="stylesheet" href="offernav.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a">
     
     <style>
         .main-content {
@@ -464,6 +466,43 @@
 
     </div>
 
+
+
+
+
+<script>
+  
+  let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    document.getElementById("installPopup").style.display = "flex";
+});
+
+document.getElementById("installBtn").addEventListener("click", async () => {
+
+    if (!deferredPrompt) {
+        alert("App is not ready to install yet.");
+        return;
+    }
+
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+        console.log("Installed");
+    }
+
+    deferredPrompt = null;
+});
+  
+  
+</script>
+
+
     <!-- Scripts -->
     <script>
         // Dynamic Icon Looping Sequence Engine (Gift -> Shirt -> Laptop -> Tag)
@@ -766,5 +805,19 @@
 
         fetchProducts();
     </script>
+    <script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+    .then(() => console.log("SW Registered"))
+    .catch(err => console.log(err));
+}
+</script>
+    
+    <div id="installPopup">
+    <h2>Install Sheikify</h2>
+    <p>Install app for a better experience.</p>
+    <button id="installBtn">Install Now</button>
+</div>
+    
 </body>
 </html>
