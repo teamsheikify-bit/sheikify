@@ -142,42 +142,50 @@
                 <i class="fa-solid fa-microphone mic-icon"></i>
             </div>
 
-            <!-- Hero Banner -->
-            <div class="banner-wrapper" id="bannerWrapper">
-                <section class="hero-banner">
-                    <div class="banner-slider" id="bannerSlider">
-                        <div class="banner-slide active" style="background: linear-gradient(135deg, #0f172a 40%, #ff9900 100%);">
-                            <div class="banner-content">
-                                <span class="tag">BIG SAVINGS, BIGGER SMILES!</span>
-                                <h1>TOP BRANDS<br>BEST DEALS!</h1>
-                                <p>Your favorite products from Amazon, Flipkart, Myntra & more.</p>
-                                <button class="shop-btn">SHOP NOW <i class="fa-solid fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="banner-slide" style="background: linear-gradient(135deg, #312e81 40%, #ec4899 100%);">
-                            <div class="banner-content">
-                                <span class="tag">FASHION FESTIVAL</span>
-                                <h1>UP TO 80% OFF<br>TRENDING STYLES</h1>
-                                <p>Upgrade your wardrobe with top international brands today.</p>
-                                <button class="shop-btn">EXPLORE <i class="fa-solid fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="banner-slide" style="background: linear-gradient(135deg, #064e3b 40%, #10b981 100%);">
-                            <div class="banner-content">
-                                <span class="tag">ELECTRONICS SALE</span>
-                                <h1>SMART GADGETS<br>UNBEATABLE PRICES</h1>
-                                <p>Laptops, Audio & Wearables with extended warranty.</p>
-                                <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="banner-dots">
-                        <span class="dot active" onclick="goToSlide(0)"></span>
-                        <span class="dot" onclick="goToSlide(1)"></span>
-                        <span class="dot" onclick="goToSlide(2)"></span>
-                    </div>
-                </section>
+<!-- Hero Banner -->
+<div class="banner-wrapper" id="bannerWrapper">
+    <section class="hero-banner">
+        <div class="banner-slider" id="bannerSlider">
+            
+            <!-- Slide 1 (Active by default) -->
+            <div class="banner-slide active" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/Q7kSdH5T/1785048412006.png') center/cover no-repeat;">
+                <div class="banner-content">
+                    <span class="tag">STREETWEAR SALE</span>
+                    <h1>URBAN STYLES<br>UNBEATABLE PRICES!</h1>
+                    <p>Oversized tees, football jerseys & textured shirts.</p>
+                    <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
             </div>
+
+            <!-- Slide 2 (No 'active' class here) -->
+            <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/chcs7NDs/1785049033897.png') center/cover no-repeat;">
+                <div class="banner-content">
+                    <span class="tag">LUXURY BAGS SALE!</span>
+                    <h1>ELEGANT STYLE<br>UNBEATABLE PRICES!</h1>
+                    <p>Premium Black Leather Shoulder Bags & Crossbody with detachable strap..</p>
+                    <button class="shop-btn">SHOP NOW <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Slide 3 (No 'active' class here) -->
+            <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/hxzPpX8d/1785049761595.png') center/cover no-repeat;">
+                <div class="banner-content">
+                    <span class="tag">SKINCARE SALE</span>
+                    <h1>FRESH GLOW<br>UNBEATABLE PRICES!</h1>
+                    <p>Face wash, day creams & refreshing skincare essentials.</p>
+                    <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="banner-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </section>
+</div>
+
         </div>
 
         <!-- Main Content Area -->
