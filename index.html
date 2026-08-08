@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novarest Deals App</title>
+    <!-- FontAwesome Icons & Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="sheikh1.css">
+    <link rel="stylesheet" href="splash.css">
+    <link rel="stylesheet" href="offer.css">
+    <link rel="stylesheet" href="offernav.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    
+    <style>
+        .main-content {
+            padding-top: 260px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Smooth & Full Horizontal Swipe Fixes */
+        .horizontal-list, .category-grid {
+            display: flex !important;
+            overflow-x: auto !important;
+            white-space: nowrap !important;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 10px 15px !important;
+            gap: 15px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .horizontal-list::-webkit-scrollbar, 
+        .category-grid::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .brand-item, .cat-item {
+            flex: 0 0 auto !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 72px;
+            cursor: pointer;
+        }
+
+        .brand-item .icon-box, .cat-item .cat-circle {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            background: #f8fafc;
+        }
+
+        .cat-item .cat-circle i {
+            font-size: 22px;
+            color: #0f172a;
+        }
+
+        .brand-item span, .cat-item span {
+            font-size: 11px;
+            font-weight: 600;
+            color: #334155;
+            white-space: normal;
+            text-align: center;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Integrated 3D Splash Screen Container -->
+    <div class="splash-overlay" id="splashScreen">
+        <div class="bg-glow glow-1"></div>
+        <div class="bg-glow glow-2"></div>
+
+        <div class="brand-wrapper">
+            <div class="logo-3d-box">
+                <div class="orbit-ring"></div>
+                <div class="logo-glass">
+                    <img src="sheikh.png" alt="Novarest Logo" class="logo-3d-img">
+                </div>
+            </div>
+
+            <div class="brand-title">
+                <span>N</span>
+                <span>o</span>
+                <span>v</span>
+                <span>a</span>
+                <span>r</span>
+                <span class="blue-text">e</span>
+                <span class="blue-text">s</span>
+                <span class="blue-text">t</span>
+            </div>
+
+            <p class="brand-tagline">Shop Smarter • Discover Better</p>
+        </div>
+
+        <div class="progress-wrapper">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        
+        <!-- Animated Header Zone -->
+        <div class="top-animated-zone" id="topHeaderZone">
+            <!-- Header Section -->
+            <header class="header">
+                <button class="menu-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+                <div class="logo-container">
+                    <div class="logo-box">
+                        <img src="sheikh.png" alt="Novarest Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <h2>Novar<span style="color:#f59e0b;">est</span></h2>
+                        <p><i class="fa-solid fa-cart-shopping" style="color:#f59e0b;"></i> SHOP SMARTER. DISCOVER BETTER.</p>
+                    </div>
+                </div>
+                <div class="notification-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+            </header>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="Search for products, brands and more...">
+                <i class="fa-solid fa-camera camera-icon"></i>
+                <i class="fa-solid fa-microphone mic-icon"></i>
+            </div>
+
+            <!-- Hero Banner -->
+            <div class="banner-wrapper" id="bannerWrapper">
+                <section class="hero-banner">
+                    <div class="banner-slider" id="bannerSlider">
+                        
+                        <!-- Slide 1 -->
+                        <div class="banner-slide active" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/Q7kSdH5T/1785048412006.png') center/cover no-repeat;">
+                            <div class="banner-content">
+                                <span class="tag">FASHION SALE</span>
+                                href="categories.html?cat=Fashion"<h1>TRENDING FASHION<br>UNBEATABLE PRICES!</h1>
+                                <p>Oversized tees, stylish outfits & premium wear.</p>
+                                <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/chcs7NDs/1785049033897.png') center/cover no-repeat;">
+                            <div class="banner-content">
+                                <span class="tag">GADGETS SALE!</span>
+                                <h1>SMART GADGETS<br>UNBEATABLE PRICES!</h1>
+                                <p>Discover top-tier tech accessories and electronics.</p>
+                                <button class="shop-btn">SHOP NOW <i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/hxzPpX8d/1785049761595.png') center/cover no-repeat;">
+                            <div class="banner-content">
+                                <span class="tag">SPORTS & FITNESS</span>
+                                <h1>ACTIVE SPORTS<br>UNBEATABLE PRICES!</h1>
+                                <p>Gear up with top sports essentials and activewear.</p>
+                                <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="banner-dots">
+                        <span class="dot active" onclick="goToSlide(0)"></span>
+                        <span class="dot" onclick="goToSlide(1)"></span>
+                        <span class="dot" onclick="goToSlide(2)"></span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Top Marketplaces Swipe -->
+            <div class="horizontal-list">
+                <div class="brand-item">
+                    <div class="icon-box"><img src="https://i.ibb.co/KcwW7nWg/oak-Image-1614794068335-article-Large.jpg" alt="Amazon"></div>
+                    <span>Amazon</span>
+                </div>
+                <div class="brand-item">
+                    <div class="icon-box"><img src="https://i.ibb.co/99M9Rdbx/flipkart-logo-rounded-flipkart-logo-free-download-flipkart-logo-free-png.png" alt="Flipkart"></div>
+                    <span>Flipkart</span>
+                </div>
+                <div class="brand-item">
+                    <div class="icon-box"><img src="https://i.ibb.co/MywB4f56/myntra-logo-myntra-icon-transparent-background-free-png.png" alt="Myntra"></div>
+                    <span>Myntra</span>
+                </div>
+                <div class="brand-item">
+                    <div class="icon-box"><img src="https://i.ibb.co/8qR0bG1/free-ajio-icon-svg-download-png-10673446.webp" alt="AJIO"></div>
+                    <span>AJIO</span>
+                </div>
+                <div class="brand-item">
+                    <div class="icon-box"><img src="https://i.ibb.co/m5pBRG2B/meesho-transparent-icon-free-png.png" alt="Meesho"></div>
+                    <span>Meesho</span>
+                </div>
+            </div>
+
+            <!-- Shop by Category Horizontal Swipe (Updated with Fashion, Gadgets, Sports) -->
+            <section class="section">
+                <div class="section-header">
+                    <h3>Shop by Category</h3>
+                    <a href="categories.html" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="category-grid">
+                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Fashion'">
+                        <div class="cat-circle"><i class="fa-solid fa-shirt"></i></div>
+                        <span>Fashion</span>
+                    </div>
+                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Gadgets'">
+                        <div class="cat-circle"><i class="fa-solid fa-laptop"></i></div>
+                        <span>Gadgets</span>
+                    </div>
+                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Sports'">
+                        <div class="cat-circle"><i class="fa-solid fa-futbol"></i></div>
+                        <span>Sports</span>
+                    </div>
+                    <div class="cat-item" onclick="window.location.href='categories.html'">
+                        <div class="cat-circle"><i class="fa-solid fa-box-open"></i></div>
+                        <span>More Categories</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Best Offers For You -->
+            <div class="offers-grid">
+                <div class="offer-card amazon-card">
+                    <img src="https://i.ibb.co/YBTDVKC7/Screenshot-20260725-131022-Myntra.jpg" class="offer-bg" alt="">
+                    <div class="offer-content">
+                        <h4>Amazon</h4>
+                        <p class="sub">UP TO</p>
+                        <h2>70% OFF</h2>
+                        <a href="#">Shop Now &gt;</a>
+                    </div>
+                </div>
+
+                <div class="offer-card flipkart-card">
+                    <img src="https://i.ibb.co/0jtSn0m4/Screenshot-20260725-145540.jpg" class="offer-bg" alt="">
+                    <div class="offer-content">
+                        <h4>Flipkart</h4>
+                        <p class="sub">UP TO</p>
+                        <h2>80% OFF</h2>
+                        <a href="#">Shop Now &gt;</a>
+                    </div>
+                </div>
+
+                <div class="offer-card myntra-card">
+                    <img src="https://i.ibb.co/M597Rq71/Screenshot-20260725-200850-Myntra.jpg" class="offer-bg" alt="">
+                    <div class="offer-content">
+                        <h4>Myntra</h4>
+                        <p class="sub">MIN.</p>
+                        <h2>50% OFF</h2>
+                        <a href="#">Shop Now &gt;</a>
+                    </div>
+                </div>
+
+                <div class="offer-card ajio-card">
+                    <img src="https://i.ibb.co/G4y4cFBS/473-Wx593-H-4905715200-multi-MODEL.webp" class="offer-bg" alt="">
+                    <div class="offer-content">
+                        <h4>AJIO</h4>
+                        <p class="sub">UP TO</p>
+                        <h2>60% OFF</h2>
+                        <a href="#">Shop Now &gt;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Deals -->
+            <section class="section">
+                <div class="section-header">
+                    <h3 id="productSectionTitle">Top Deals ⚡</h3>
+                    <a href="#" class="view-all" onclick="fetchProducts(); return false;">View All <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Premium Novarest Marketplace Banner -->
+                <div class="sheikify-app-banner">
+                    <div class="sheikify-app-brand">
+                        <div class="sheikify-logo-frame">
+                            <img src="sheikh.png" alt="Novarest Logo">
+                        </div>
+                        <div class="sheikify-banner-text">
+                            <h3>Novarest All-In-One</h3>
+                            <p>Marketplace Hub</p>
+                        </div>
+                    </div>
+                    <button class="sheikify-app-btn">
+                        <span>Novarest</span>
+                        <i class="fa-solid fa-crown"></i>
+                    </button>
+                </div>
+                
+                <div class="products-grid" id="productsGrid">
+                    <p style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 20px;">Loading deals...</p>
+                </div>
+            </section>
+
+            <!-- Gift Banner -->
+            <div class="gift-banner">
+                <div class="gift-text">
+                    <h3>Perfect Gifts for Every Occasion</h3>
+                    <p>Explore Gift Ideas</p>
+                </div>
+                <button class="gift-btn">Shop Now</button>
+            </div>
+        </main>
+
+        <!-- Overlay for Sheets -->
+        <div class="sheet-overlay" id="sheetOverlay"></div>
+
+        <!-- Customer Care Bottom Sheet Screen (Updated with Khaqan Amin) -->
+        <div class="bottom-sheet" id="customerCareSheet">
+            <div class="sheet-handle"></div>
+            <button class="close-sheet-btn" onclick="closeSheet('customerCareSheet')">&times;</button>
+            
+            <div class="sheet-logo-center">
+                <div class="logo-box">
+                    <img src="sheikh.png" alt="Novarest Logo" class="logo-img">
+                </div>
+                <h2>Novar<span style="color:#f59e0b;">est</span></h2>
+            </div>
+
+            <h3 class="sheet-title">Customer Support</h3>
+            <p class="sheet-sub">We are here 24/7 to help you with your orders!</p>
+
+            <div class="contacts-list">
+                <div class="contact-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <div>
+                        <strong>Khaqan Amin</strong>
+                        <a href="tel:+916006309060">+91 60063 09060</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <strong>Email Support</strong>
+                        <a href="mailto:Support.Novarest@gmail.com">Support.Novarest@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-channels">
+                <p>Connect with us on Social Media</p>
+                <div class="social-icons">
+                    <a href="#" class="soc-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="soc-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="soc-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="soc-btn telegram"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Offers Bottom Sheet Screen -->
+        <div class="bottom-sheet offers-sheet-3d" id="offersSheet">
+            <div class="sheet-handle"></div>
+            <button class="close-sheet-btn" onclick="closeSheet('offersSheet')" aria-label="Close">&times;</button>
+            
+            <div class="shop-3d-header">
+                <span class="shop-3d-badge"><i class="fa-solid fa-bolt"></i> Mega Offers</span>
+                <div class="shop-3d-logo-box">
+                    <div class="sheet-anim-circle">
+                        <i class="fa-solid fa-gift" id="sheetHeaderDynamicIcon"></i>
+                    </div>
+                </div>
+                <h2 class="shop-3d-title">
+                    Novar<span class="ify-text">est</span> 
+                    <i class="fa-solid fa-cart-shopping shop-icon"></i>
+                </h2>
+                <p class="shop-3d-sub">Exclusive Discounts & Dynamic Offers</p>
+            </div>
+
+            <div class="products-grid scrollable-grid" id="offersGrid">
+                <p style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 20px;">Loading offers...</p>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" onclick="setActiveNav(this)">
+                <div class="icon-wrap"><i class="fa-solid fa-house"></i></div>
+                <span>Home</span>
+            </a>
+            <a href="categories.html" class="nav-item" onclick="setActiveNav(this)">
+                <div class="icon-wrap"><i class="fa-solid fa-border-all"></i></div>
+                <span>Categories</span>
+            </a>
+            <a href="#" class="nav-item" id="animatedOffersNavItem" onclick="setActiveNav(this); openSheet('offersSheet')">
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-gift animated-nav-icon" id="dynamicNavOfferIcon"></i>
+                </div>
+                <span>Offers</span>
+            </a>
+            <a href="#" class="nav-item" onclick="setActiveNav(this); openSheet('customerCareSheet')">
+                <div class="icon-wrap"><i class="fa-solid fa-headset"></i></div>
+                <span>Customer Care</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const OFFER_LOOP_ICONS = ['fa-gift', 'fa-shirt', 'fa-laptop', 'fa-tag'];
+        let currentIconIndex = 0;
+
+        function cycleNavIcons() {
+            const navIcon = document.getElementById('dynamicNavOfferIcon');
+            const sheetIcon = document.getElementById('sheetHeaderDynamicIcon');
+            if (!navIcon) return;
+
+            navIcon.classList.add('swap-out');
+
+            setTimeout(() => {
+                currentIconIndex = (currentIconIndex + 1) % OFFER_LOOP_ICONS.length;
+                const nextIconClass = OFFER_LOOP_ICONS[currentIconIndex];
+
+                navIcon.className = `fa-solid ${nextIconClass} animated-nav-icon swap-in`;
+                if (sheetIcon) {
+                    sheetIcon.className = `fa-solid ${nextIconClass}`;
+                }
+
+                setTimeout(() => {
+                    navIcon.classList.remove('swap-out', 'swap-in');
+                }, 200);
+            }, 250);
+        }
+
+        setInterval(cycleNavIcons, 2500);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const splash = document.getElementById('splashScreen');
+            const hasSeenSplash = sessionStorage.getItem('novarest_splash_shown');
+
+            if (hasSeenSplash) {
+                splash.style.display = 'none';
+            } else {
+                setTimeout(() => {
+                    splash.classList.add('fade-out');
+                    sessionStorage.setItem('novarest_splash_shown', 'true');
+                    
+                    setTimeout(() => {
+                        splash.style.display = 'none';
+                    }, 800);
+                }, 3000);
+            }
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        const dots = document.querySelectorAll('.banner-dots .dot');
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => {
+            let nextSlide = (currentSlide + 1) % slides.length;
+            goToSlide(nextSlide);
+        }, 3500);
+
+        function setActiveNav(element) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        const overlay = document.getElementById('sheetOverlay');
+
+        function openSheet(sheetId) {
+            overlay.classList.add('active');
+            document.getElementById(sheetId).classList.add('active');
+            if (sheetId === 'offersSheet') {
+                fetchOfferProducts();
+            }
+        }
+
+        function closeSheet(sheetId) {
+            overlay.classList.remove('active');
+            document.getElementById(sheetId).classList.remove('active');
+        }
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            document.querySelectorAll('.bottom-sheet').forEach(sheet => {
+                sheet.classList.remove('active');
+            });
+        });
+
+        const topHeader = document.getElementById("topHeaderZone");
+        const mainContent = document.querySelector(".main-content");
+
+        function syncHeaderHeight() {
+            if (!topHeader || !mainContent) return;
+            const currentHeight = topHeader.getBoundingClientRect().height;
+            mainContent.style.paddingTop = currentHeight + "px";
+        }
+
+        function updateHeader() {
+            if (window.scrollY > 30) {
+                topHeader.classList.add("collapsed");
+            } else {
+                topHeader.classList.remove("collapsed");
+            }
+            requestAnimationFrame(syncHeaderHeight);
+        }
+
+        window.addEventListener("scroll", updateHeader, { passive: true });
+        window.addEventListener("resize", syncHeaderHeight);
+        window.addEventListener("DOMContentLoaded", syncHeaderHeight);
+        window.addEventListener("load", syncHeaderHeight);
+
+        syncHeaderHeight();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://qspwtvwaglhjmxkyjavn.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzcHd0dndhZ2xoam14a3lqYXZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4OTgzNDUsImV4cCI6MjEwMDQ3NDM0NX0.Y7e5zmRU6pmEIo74cTbH9HrBNBaQbW4ge1SorvCXEGI";
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let allProducts = [];
+
+        const BRAND_LOGOS = {
+            'amazon': 'https://i.ibb.co/KcwW7nWg/oak-Image-1614794068335-article-Large.jpg',
+            'flipkart': 'https://i.ibb.co/99M9Rdbx/flipkart-logo-rounded-flipkart-logo-free-download-flipkart-logo-free-png.png',
+            'myntra': 'https://i.ibb.co/MywB4f56/myntra-logo-myntra-icon-transparent-background-free-png.png',
+            'ajio': 'https://i.ibb.co/8g71Dmkn/61675b089b1c8-384x384.png',
+            'meesho': 'https://i.ibb.co/m5pBRG2B/meesho-transparent-icon-free-png.png'
+        };
+
+        function getMarketplaceBadge(m) {
+            const key = (m || '').toLowerCase().trim();
+            const logoUrl = BRAND_LOGOS[key];
+            
+            if (logoUrl) {
+                return `
+                    <span class="m-badge ${key}">
+                        <img src="${logoUrl}" alt="${m}" class="m-badge-img">
+                        ${m}
+                    </span>
+                `;
+            }
+            return `<span class="m-badge default">${m || 'Store'}</span>`;
+        }
+
+        function toggleWishlist(btn) {
+            btn.classList.toggle('active');
+            if (btn.classList.contains('active')) {
+                btn.classList.remove('fa-regular');
+                btn.classList.add('fa-solid');
+            } else {
+                btn.classList.remove('fa-solid');
+                btn.classList.add('fa-regular');
+            }
+        }
+
+        function truncateText(text, limit) {
+            if (!text) return '';
+            return text.length > limit ? text.substring(0, limit) + '...' : text;
+        }
+
+        async function fetchProducts() {
+            const grid = document.getElementById('productsGrid');
+            const { data, error } = await _supabase.from('products').select('*').order('created_at', { ascending: false });
+
+            if (error) {
+                console.error("Error:", error);
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #ef4444;">Failed to load products. Please try again.</p>';
+                return;
+            }
+
+            allProducts = data || [];
+            renderProducts(allProducts, grid);
+        }
+
+        async function fetchOfferProducts() {
+            const offersGrid = document.getElementById('offersGrid');
+            offersGrid.innerHTML = '<p class="status-msg">Loading exclusive offers...</p>';
+
+            const { data, error } = await _supabase
+                .from('products')
+                .select('*')
+                .eq('is_offer', true)
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                console.error("Offers fetch error:", error);
+                offersGrid.innerHTML = '<p class="status-msg error">Failed to load offers. Please try again.</p>';
+                return;
+            }
+
+            if (!data || data.length === 0) {
+                offersGrid.innerHTML = `
+                    <div class="no-offers-storefront">
+                        <div class="store-illustration">
+                            <div class="store-board">
+                                NOVAREST <span class="highlight">DEALS</span>
+                            </div>
+                        </div>
+                        <h4>No Active Offers Right Now</h4>
+                        <p>New discounts on Fashion, Gadgets, and Sports are coming soon!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            renderProducts(data, offersGrid);
+        }
+
+        function renderProducts(productsList, targetGrid) {
+            if (!productsList || productsList.length === 0) {
+                targetGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #64748b;">No products found.</p>';
+                return;
+            }
+
+            targetGrid.innerHTML = productsList.map(item => {
+                const mrp = item.mrp || item.price || 0;
+                const price = item.price || 0;
+                const discount = mrp > 0 ? Math.round(((mrp - price) / mrp) * 100) : 0;
+                
+                return `
+                    <div class="product-card" onclick="window.location.href='viewproduct.html?id=${item.id}'">
+                        ${discount > 0 ? `<span class="discount-badge">-${discount}%</span>` : ''}
+                        ${item.golden_tag ? `<span class="golden-tag"><i class="fa-solid fa-crown"></i> ${item.golden_tag}</span>` : ''}
+                        
+                        <i class="fa-regular fa-heart wish-icon" onclick="event.stopPropagation(); toggleWishlist(this)"></i>
+                        
+                        <div class="product-img-box">
+                            <img src="${item.image_url1 || 'sheikh.png'}" alt="${item.title}" class="dynamic-p-img" onerror="this.src='sheikh.png'">
+                        </div>
+                        
+                        <p class="p-title">${item.title || ''}</p>
+                        <p class="p-desc">${truncateText(item.description, 35)}</p>
+                        
+                        <div class="price-row">
+                            <span class="price">₹${price.toLocaleString('en-IN')}</span>
+                            ${mrp > price ? `<span class="old-price">₹${mrp.toLocaleString('en-IN')}</span>` : ''}
+                            <span class="rating"><i class="fa-solid fa-star"></i> ${item.rating || '4.5'}</span>
+                        </div>
+                        
+                        <div class="card-footer-info">
+                            ${getMarketplaceBadge(item.marketplace)}
+                            <span class="trusted-badge"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        fetchProducts();
+    </script>
+</body>
+</html>
