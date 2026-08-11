@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novarest Deals App</title>
+    <title>Novarest App</title>
     <!-- FontAwesome Icons & Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="sheikh1.css">
+    <link rel="stylesheet" href="sheikh.css">
     <link rel="stylesheet" href="splash.css">
     <link rel="stylesheet" href="offer.css">
     <link rel="stylesheet" href="offernav.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#0f172a">
     
     <style>
         .main-content {
@@ -97,16 +97,22 @@
 
             <div class="brand-title">
                 <span>N</span>
-                <span>o</span>
-                <span>v</span>
-                <span>a</span>
-                <span>r</span>
-                <span class="blue-text">e</span>
-                <span class="blue-text">s</span>
-                <span class="blue-text">t</span>
+                <span>O</span>
+                <span>V</span>
+                <span>A</span>
+                
+              <span>R</span>
+              <span>E</span>
+              <span>S</span>
+              <span>T</span>
+                <span class="blue-text">D</span>
+                <span class="blue-text">E</span>
+                <span class="blue-text">A</span>
+              <span class="blue-text">L</span>
+                <span class="blue-text">S</span>
             </div>
 
-            <p class="brand-tagline">Shop Smarter • Discover Better</p>
+            <p class="brand-tagline">Shop fashion • gadgets • sports</p>
         </div>
 
         <div class="progress-wrapper">
@@ -123,11 +129,11 @@
                 <button class="menu-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
                 <div class="logo-container">
                     <div class="logo-box">
-                        <img src="sheikh.png" alt="Novarest Logo" class="logo-img">
+                        <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
                     </div>
                     <div class="logo-text">
-                        <h2>Novar<span style="color:#f59e0b;">est</span></h2>
-                        <p><i class="fa-solid fa-cart-shopping" style="color:#f59e0b;"></i> SHOP SMARTER. DISCOVER BETTER.</p>
+                        <h2>Novarest<span style="color:#f59e0b;">Deals</span></h2>
+                        <p><i class="fa-solid fa-cart-shopping" style="color:#f59e0b;"></i> fashion gadgets sports.</p>
                     </div>
                 </div>
                 <div class="notification-btn">
@@ -144,49 +150,50 @@
                 <i class="fa-solid fa-microphone mic-icon"></i>
             </div>
 
-            <!-- Hero Banner -->
-            <div class="banner-wrapper" id="bannerWrapper">
-                <section class="hero-banner">
-                    <div class="banner-slider" id="bannerSlider">
-                        
-                        <!-- Slide 1 -->
-                        <div class="banner-slide active" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/Q7kSdH5T/1785048412006.png') center/cover no-repeat;">
-                            <div class="banner-content">
-                                <span class="tag">FASHION SALE</span>
-                                href="categories.html?cat=Fashion"<h1>TRENDING FASHION<br>UNBEATABLE PRICES!</h1>
-                                <p>Oversized tees, stylish outfits & premium wear.</p>
-                                <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/chcs7NDs/1785049033897.png') center/cover no-repeat;">
-                            <div class="banner-content">
-                                <span class="tag">GADGETS SALE!</span>
-                                <h1>SMART GADGETS<br>UNBEATABLE PRICES!</h1>
-                                <p>Discover top-tier tech accessories and electronics.</p>
-                                <button class="shop-btn">SHOP NOW <i class="fa-solid fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-
-                        <!-- Slide 3 -->
-                        <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/hxzPpX8d/1785049761595.png') center/cover no-repeat;">
-                            <div class="banner-content">
-                                <span class="tag">SPORTS & FITNESS</span>
-                                <h1>ACTIVE SPORTS<br>UNBEATABLE PRICES!</h1>
-                                <p>Gear up with top sports essentials and activewear.</p>
-                                <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="banner-dots">
-                        <span class="dot active" onclick="goToSlide(0)"></span>
-                        <span class="dot" onclick="goToSlide(1)"></span>
-                        <span class="dot" onclick="goToSlide(2)"></span>
-                    </div>
-                </section>
+<!-- Hero Banner -->
+<div class="banner-wrapper" id="bannerWrapper">
+    <section class="hero-banner">
+        <div class="banner-slider" id="bannerSlider">
+            
+            <!-- Slide 1 (Active by default) -->
+            <div class="banner-slide active" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/Q7kSdH5T/1785048412006.png') center/cover no-repeat;">
+                <div class="banner-content">
+                    <span class="tag">STREETWEAR SALE</span>
+                    <h1>URBAN STYLES<br>UNBEATABLE PRICES!</h1>
+                    <p>Oversized tees, football jerseys & textured shirts.</p>
+                    <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
             </div>
+
+            <!-- Slide 2 (No 'active' class here) -->
+            <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/chcs7NDs/1785049033897.png') center/cover no-repeat;">
+                <div class="banner-content">
+                    <span class="tag">LUXURY BAGS SALE!</span>
+                    <h1>ELEGANT STYLE<br>UNBEATABLE PRICES!</h1>
+                    <p>Premium Black Leather Shoulder Bags & Crossbody with detachable strap..</p>
+                    <button class="shop-btn">SHOP NOW <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Slide 3 (No 'active' class here) -->
+            <div class="banner-slide" style="background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 45%, rgba(15, 23, 42, 0) 85%), url('https://i.ibb.co/hxzPpX8d/1785049761595.png') center/cover no-repeat;">
+                <div class="banner-content">
+                    <span class="tag">SKINCARE SALE</span>
+                    <h1>FRESH GLOW<br>UNBEATABLE PRICES!</h1>
+                    <p>Face wash, day creams & refreshing skincare essentials.</p>
+                    <button class="shop-btn">GRAB DEALS <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="banner-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </section>
+</div>
+
         </div>
 
         <!-- Main Content Area -->
@@ -195,28 +202,56 @@
             <!-- Top Marketplaces Swipe -->
             <div class="horizontal-list">
                 <div class="brand-item">
-                    <div class="icon-box"><img src="https://i.ibb.co/KcwW7nWg/oak-Image-1614794068335-article-Large.jpg" alt="Amazon"></div>
+                    <div class="icon-box">
+                        <img src="https://i.ibb.co/KcwW7nWg/oak-Image-1614794068335-article-Large.jpg" alt="Amazon">
+                    </div>
                     <span>Amazon</span>
                 </div>
+
                 <div class="brand-item">
-                    <div class="icon-box"><img src="https://i.ibb.co/99M9Rdbx/flipkart-logo-rounded-flipkart-logo-free-download-flipkart-logo-free-png.png" alt="Flipkart"></div>
+                    <div class="icon-box">
+                        <img src="https://i.ibb.co/99M9Rdbx/flipkart-logo-rounded-flipkart-logo-free-download-flipkart-logo-free-png.png" alt="Flipkart">
+                    </div>
                     <span>Flipkart</span>
                 </div>
+
                 <div class="brand-item">
-                    <div class="icon-box"><img src="https://i.ibb.co/MywB4f56/myntra-logo-myntra-icon-transparent-background-free-png.png" alt="Myntra"></div>
+                    <div class="icon-box">
+                        <img src="https://i.ibb.co/MywB4f56/myntra-logo-myntra-icon-transparent-background-free-png.png" alt="Myntra">
+                    </div>
                     <span>Myntra</span>
                 </div>
+
                 <div class="brand-item">
-                    <div class="icon-box"><img src="https://i.ibb.co/8qR0bG1/free-ajio-icon-svg-download-png-10673446.webp" alt="AJIO"></div>
+                    <div class="icon-box">
+                        <img src="https://i.ibb.co/8qR0bG1/free-ajio-icon-svg-download-png-10673446.webp" alt="AJIO">
+                    </div>
                     <span>AJIO</span>
                 </div>
+
                 <div class="brand-item">
-                    <div class="icon-box"><img src="https://i.ibb.co/m5pBRG2B/meesho-transparent-icon-free-png.png" alt="Meesho"></div>
+                    <div class="icon-box">
+                        <img src="https://i.ibb.co/m5pBRG2B/meesho-transparent-icon-free-png.png" alt="Meesho">
+                    </div>
                     <span>Meesho</span>
+                </div>
+
+                <div class="brand-item">
+                    <div class="icon-box">
+                        <img src="https://i.ibb.co/VcSYz6S7/free-nykaa-logo-icon-svg-download-png-2822953.webp" alt="Nykaa">
+                    </div>
+                    <span>Nykaa</span>
+                </div>
+
+                <div class="brand-item">
+                    <div class="icon-box">
+                        <img src="https://i.ibb.co/RpWMqnfZ/20bbe636fdda9e1fe505c198c322ae.webp" alt="Tata CLiQ">
+                    </div>
+                    <span>Tata CLiQ</span>
                 </div>
             </div>
 
-            <!-- Shop by Category Horizontal Swipe (Updated with Fashion, Gadgets, Sports) -->
+            <!-- Shop by Category Horizontal Swipe -->
             <section class="section">
                 <div class="section-header">
                     <h3>Shop by Category</h3>
@@ -227,13 +262,21 @@
                         <div class="cat-circle"><i class="fa-solid fa-shirt"></i></div>
                         <span>Fashion</span>
                     </div>
-                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Gadgets'">
-                        <div class="cat-circle"><i class="fa-solid fa-laptop"></i></div>
-                        <span>Gadgets</span>
+                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Electronics'">
+                        <div class="cat-circle"><i class="fa-solid fa-headphones"></i></div>
+                        <span>Electronics</span>
                     </div>
-                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Sports'">
-                        <div class="cat-circle"><i class="fa-solid fa-futbol"></i></div>
-                        <span>Sports</span>
+                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Home'">
+                        <div class="cat-circle"><i class="fa-solid fa-couch"></i></div>
+                        <span>Home & Kitchen</span>
+                    </div>
+                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Beauty'">
+                        <div class="cat-circle"><i class="fa-solid fa-pump-soap"></i></div>
+                        <span>Beauty</span>
+                    </div>
+                    <div class="cat-item" onclick="window.location.href='categories.html?cat=Gadgets'">
+                        <div class="cat-circle"><i class="fa-solid fa-stopwatch"></i></div>
+                        <span>Gadgets</span>
                     </div>
                     <div class="cat-item" onclick="window.location.href='categories.html'">
                         <div class="cat-circle"><i class="fa-solid fa-box-open"></i></div>
@@ -292,19 +335,19 @@
                     <a href="#" class="view-all" onclick="fetchProducts(); return false;">View All <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 
-                <!-- Premium Novarest Marketplace Banner -->
+                <!-- Premium Sheikify Marketplace Banner -->
                 <div class="sheikify-app-banner">
                     <div class="sheikify-app-brand">
                         <div class="sheikify-logo-frame">
-                            <img src="sheikh.png" alt="Novarest Logo">
+                            <img src="sheikh.png" alt="Sheikify Logo">
                         </div>
                         <div class="sheikify-banner-text">
-                            <h3>Novarest All-In-One</h3>
+                            <h3>Sheikify All-In-One</h3>
                             <p>Marketplace Hub</p>
                         </div>
                     </div>
                     <button class="sheikify-app-btn">
-                        <span>Novarest</span>
+                        <span>Sheikify</span>
                         <i class="fa-solid fa-crown"></i>
                     </button>
                 </div>
@@ -327,16 +370,16 @@
         <!-- Overlay for Sheets -->
         <div class="sheet-overlay" id="sheetOverlay"></div>
 
-        <!-- Customer Care Bottom Sheet Screen (Updated with Khaqan Amin) -->
+        <!-- Customer Care Bottom Sheet Screen -->
         <div class="bottom-sheet" id="customerCareSheet">
             <div class="sheet-handle"></div>
             <button class="close-sheet-btn" onclick="closeSheet('customerCareSheet')">&times;</button>
             
             <div class="sheet-logo-center">
                 <div class="logo-box">
-                    <img src="sheikh.png" alt="Novarest Logo" class="logo-img">
+                    <img src="sheikh.png" alt="Sheikify Logo" class="logo-img">
                 </div>
-                <h2>Novar<span style="color:#f59e0b;">est</span></h2>
+                <h2>Novarest<span style="color:#f59e0b;">Deals</span></h2>
             </div>
 
             <h3 class="sheet-title">Customer Support</h3>
@@ -370,11 +413,12 @@
             </div>
         </div>
 
-        <!-- Dynamic Offers Bottom Sheet Screen -->
+        <!-- UPDATED 3D Dynamic Offers Bottom Sheet Screen -->
         <div class="bottom-sheet offers-sheet-3d" id="offersSheet">
             <div class="sheet-handle"></div>
             <button class="close-sheet-btn" onclick="closeSheet('offersSheet')" aria-label="Close">&times;</button>
             
+            <!-- 3D Shop Header -->
             <div class="shop-3d-header">
                 <span class="shop-3d-badge"><i class="fa-solid fa-bolt"></i> Mega Offers</span>
                 <div class="shop-3d-logo-box">
@@ -383,25 +427,28 @@
                     </div>
                 </div>
                 <h2 class="shop-3d-title">
-                    Novar<span class="ify-text">est</span> 
+                    Novarest<span class="ify-text">Deals</span> 
                     <i class="fa-solid fa-cart-shopping shop-icon"></i>
                 </h2>
                 <p class="shop-3d-sub">Exclusive Discounts & Dynamic Offers</p>
             </div>
 
+            <!-- Products Grid / Empty Vector State Area -->
             <div class="products-grid scrollable-grid" id="offersGrid">
                 <p style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 20px;">Loading offers...</p>
             </div>
         </div>
 
-        <!-- Bottom Navigation Bar -->
+        <!-- Bottom Navigation Bar with Dynamic Looping Icon -->
         <nav class="bottom-nav">
             <a href="#" class="nav-item active" onclick="setActiveNav(this)">
                 <div class="icon-wrap"><i class="fa-solid fa-house"></i></div>
                 <span>Home</span>
             </a>
             <a href="categories.html" class="nav-item" onclick="setActiveNav(this)">
-                <div class="icon-wrap"><i class="fa-solid fa-border-all"></i></div>
+                <div class="icon-wrap">
+                    <i class="fa-solid fa-border-all"></i>
+                </div>
                 <span>Categories</span>
             </a>
             <a href="#" class="nav-item" id="animatedOffersNavItem" onclick="setActiveNav(this); openSheet('offersSheet')">
@@ -415,11 +462,25 @@
                 <span>Customer Care</span>
             </a>
         </nav>
+
     </div>
+
+
+
+
+
 
     <!-- Scripts -->
     <script>
-        const OFFER_LOOP_ICONS = ['fa-gift', 'fa-shirt', 'fa-laptop', 'fa-tag'];
+      
+      
+        // Dynamic Icon Looping Sequence Engine (Gift -> Shirt -> Laptop -> Tag)
+        const OFFER_LOOP_ICONS = [
+            'fa-gift',
+            'fa-shirt',
+            'fa-laptop',
+            'fa-tag'
+        ];
         let currentIconIndex = 0;
 
         function cycleNavIcons() {
@@ -444,18 +505,20 @@
             }, 250);
         }
 
+        // Start 2.5 second looping timer
         setInterval(cycleNavIcons, 2500);
 
+        // --- Splash Screen Handling with SessionStorage ---
         document.addEventListener('DOMContentLoaded', () => {
             const splash = document.getElementById('splashScreen');
-            const hasSeenSplash = sessionStorage.getItem('novarest_splash_shown');
+            const hasSeenSplash = sessionStorage.getItem('sheikify_splash_shown');
 
             if (hasSeenSplash) {
                 splash.style.display = 'none';
             } else {
                 setTimeout(() => {
                     splash.classList.add('fade-out');
-                    sessionStorage.setItem('novarest_splash_shown', 'true');
+                    sessionStorage.setItem('sheikify_splash_shown', 'true');
                     
                     setTimeout(() => {
                         splash.style.display = 'none';
@@ -464,6 +527,7 @@
             }
         });
 
+        // Banner Slider Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.banner-slide');
         const dots = document.querySelectorAll('.banner-dots .dot');
@@ -510,6 +574,7 @@
             });
         });
 
+        // Header Scroll & Height Synchronization Logic
         const topHeader = document.getElementById("topHeaderZone");
         const mainContent = document.querySelector(".main-content");
 
@@ -528,6 +593,19 @@
             requestAnimationFrame(syncHeaderHeight);
         }
 
+        if (window.ResizeObserver && topHeader) {
+            const headerObserver = new ResizeObserver(() => {
+                requestAnimationFrame(syncHeaderHeight);
+            });
+            headerObserver.observe(topHeader);
+        }
+
+        if (topHeader) {
+            topHeader.addEventListener("transitionend", () => {
+                requestAnimationFrame(syncHeaderHeight);
+            });
+        }
+
         window.addEventListener("scroll", updateHeader, { passive: true });
         window.addEventListener("resize", syncHeaderHeight);
         window.addEventListener("DOMContentLoaded", syncHeaderHeight);
@@ -544,12 +622,14 @@
 
         let allProducts = [];
 
+        // Dynamic Brand Logos Mapping
         const BRAND_LOGOS = {
             'amazon': 'https://i.ibb.co/KcwW7nWg/oak-Image-1614794068335-article-Large.jpg',
             'flipkart': 'https://i.ibb.co/99M9Rdbx/flipkart-logo-rounded-flipkart-logo-free-download-flipkart-logo-free-png.png',
             'myntra': 'https://i.ibb.co/MywB4f56/myntra-logo-myntra-icon-transparent-background-free-png.png',
             'ajio': 'https://i.ibb.co/8g71Dmkn/61675b089b1c8-384x384.png',
-            'meesho': 'https://i.ibb.co/m5pBRG2B/meesho-transparent-icon-free-png.png'
+            'meesho': 'https://i.ibb.co/m5pBRG2B/meesho-transparent-icon-free-png.png',
+            'nykaa': 'https://i.ibb.co/VcSYz6S7/free-nykaa-logo-icon-svg-download-png-2822953.webp'
         };
 
         function getMarketplaceBadge(m) {
@@ -583,6 +663,7 @@
             return text.length > limit ? text.substring(0, limit) + '...' : text;
         }
 
+        // Main Deals Fetch
         async function fetchProducts() {
             const grid = document.getElementById('productsGrid');
             const { data, error } = await _supabase.from('products').select('*').order('created_at', { ascending: false });
@@ -597,6 +678,7 @@
             renderProducts(allProducts, grid);
         }
 
+        // Dynamic Fetch Offers for Sheikify Marketplace
         async function fetchOfferProducts() {
             const offersGrid = document.getElementById('offersGrid');
             offersGrid.innerHTML = '<p class="status-msg">Loading exclusive offers...</p>';
@@ -618,11 +700,30 @@
                     <div class="no-offers-storefront">
                         <div class="store-illustration">
                             <div class="store-board">
-                                NOVAREST <span class="highlight">DEALS</span>
+                                SHEIK<span class="highlight">IFY</span> MARKETPLACE
+                            </div>
+                            <div class="store-roof"></div>
+                            <div class="store-windows">
+                                <div class="window-box" title="Gadgets & Electronics">
+                                    <i class="fa-solid fa-laptop cat-icon"></i>
+                                </div>
+                                <div class="window-box" title="Fashion & Apparel">
+                                    <i class="fa-solid fa-shirt cat-icon"></i>
+                                </div>
+                                <div class="window-box" title="Beauty & Personal Care">
+                                    <i class="fa-solid fa-sparkles cat-icon"></i>
+                                </div>
+                            </div>
+                            <div class="express-van">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <span>EXPRESS DELIVERY</span>
+                            </div>
+                            <div class="bag-graphic">
+                                <i class="fa-solid fa-bag-shopping"></i>
                             </div>
                         </div>
                         <h4>No Active Offers Right Now</h4>
-                        <p>New discounts on Fashion, Gadgets, and Sports are coming soon!</p>
+                        <p>New discounts on Gadgets, Fashion, and Beauty products are coming soon!</p>
                     </div>
                 `;
                 return;
@@ -673,5 +774,43 @@
 
         fetchProducts();
     </script>
+    
+    <script>
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // 2 second baad install popup dikhao
+    setTimeout(async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log("Install:", outcome);
+
+            deferredPrompt = null;
+        }
+    }, 2000);
+});
+
+window.addEventListener("appinstalled", () => {
+    console.log("App Installed");
+});
+</script>
+    
+    
+    <script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+    .then(() => console.log("SW Registered"))
+    .catch(err => console.log(err));
+}
+</script>
+    
+
+</div>
+    
 </body>
 </html>
